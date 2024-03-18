@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#664B8D"
+    android:id="@+id/ll_user"
+    android:layout_marginBottom="20dp">
+
+    <ImageView
+        android:id="@+id/img_photo"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/txt_item_FIO"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="FIO"/>
+
+    <TextView
+        android:id="@+id/txt_item_address"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:text="Address"/>
+    <TextView
+        android:id="@+id/txt_item_phone_number"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:text="Phone number"
+        android:layout_marginBottom="20dp"/>
+
+
+</LinearLayout>
