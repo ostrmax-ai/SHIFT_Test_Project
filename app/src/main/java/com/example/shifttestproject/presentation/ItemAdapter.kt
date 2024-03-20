@@ -1,26 +1,21 @@
 package com.example.shifttestproject.presentation
 
-import android.app.DownloadManager.Request
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.privacysandbox.tools.core.model.Method
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.example.shifttestproject.R
 import com.example.shifttestproject.domain.User
+import com.example.shifttestproject.domain.UserResponse
 import com.squareup.picasso.Picasso
-import org.json.JSONObject
 
 
-class ItemAdapter(var items: ArrayList<User>, val context: Context): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(var items: List<User>, val context: Context): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val llUser: LinearLayout = view.findViewById(R.id.ll_user)
@@ -40,10 +35,17 @@ class ItemAdapter(var items: ArrayList<User>, val context: Context): RecyclerVie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Picasso.get().load(items[position].image).into(holder.imgPhoto)
-        holder.txtFIO.text = items[position].FIO
-        holder.txtAddress.text = items[position].address
-        holder.txtPhoneNumber.text = items[position].phoneNumber
+
+        val name = items[position].name
+        val FIO = name.title + name.first + name.last
+        val address = items[position].location.street.number.toString() +
+                        items[position].location.street.name
+        val phoneNumber = items[position].phone
+
+        Picasso.get().load(items[position].picture.medium).into(holder.imgPhoto)
+        holder.txtFIO.text = FIO
+        holder.txtAddress.text = address
+        holder.txtPhoneNumber.text = phoneNumber
 
         holder.llUser.setOnClickListener{
             context.startActivity(Intent(context, ItemActivity::class.java))
