@@ -10,12 +10,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shifttestproject.R
-import com.example.shifttestproject.domain.User
-import com.example.shifttestproject.domain.UserResponse
+import com.example.shifttestproject.model.DBUser
 import com.squareup.picasso.Picasso
 
-
-class ItemAdapter(var items: List<User>, val context: Context): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(var items: MutableList<DBUser>, val context: Context): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val llUser: LinearLayout = view.findViewById(R.id.ll_user)
@@ -36,19 +34,33 @@ class ItemAdapter(var items: List<User>, val context: Context): RecyclerView.Ada
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val name = items[position].name
-        val FIO = name.title + name.first + name.last
-        val address = items[position].location.street.number.toString() +
-                        items[position].location.street.name
-        val phoneNumber = items[position].phone
+        val FIO = items[position].FIO
+        val address = items[position].address
+        val phoneNumber = items[position].phoneNumber
+        val email = items[position].email
+        val gender = items[position].gender
+        val nationality = items[position].nationality
+        val country = items[position].country
+        val age = items[position].age
 
-        Picasso.get().load(items[position].picture.medium).into(holder.imgPhoto)
+
+        Picasso.get().load(items[position].image).into(holder.imgPhoto)
         holder.txtFIO.text = FIO
         holder.txtAddress.text = address
         holder.txtPhoneNumber.text = phoneNumber
 
         holder.llUser.setOnClickListener{
-            context.startActivity(Intent(context, ItemActivity::class.java))
+            val intent = Intent(context, ItemActivity::class.java)
+            intent.putExtra("FIO", FIO)
+            intent.putExtra("address", address)
+            intent.putExtra("phoneNumber", phoneNumber)
+            intent.putExtra("email", email)
+            intent.putExtra("gender", gender)
+            intent.putExtra("nationality", nationality)
+            intent.putExtra("country", country)
+            intent.putExtra("age", age)
+
+            context.startActivity(intent)
         }
     }
 }

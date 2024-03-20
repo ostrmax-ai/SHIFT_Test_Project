@@ -16,18 +16,22 @@
         android:textStyle="bold"
         android:text="All users"
         android:textColor="#fdfdfd"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="30sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_price_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="550dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="20dp"
-        />
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Обновить"
+        android:textSize="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

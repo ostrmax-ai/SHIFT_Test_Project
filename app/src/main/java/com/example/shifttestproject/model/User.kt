@@ -1,4 +1,4 @@
-package com.example.shifttestproject.domain
+package com.example.shifttestproject.model
 
 data class User(
     val gender: String,

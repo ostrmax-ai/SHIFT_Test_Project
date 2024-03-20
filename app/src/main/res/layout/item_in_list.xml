@@ -29,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="20sp"
         android:text="Address"/>
     <TextView
         android:id="@+id/txt_item_phone_number"
@@ -36,6 +38,8 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="20sp"
         android:text="Phone number"
         android:layout_marginBottom="20dp"/>
 

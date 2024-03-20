@@ -1,4 +1,5 @@
-package com.example.shifttestproject.domain
+package com.example.shifttestproject.service
+import com.example.shifttestproject.model.UserResponse
 import retrofit2.http.GET
 import retrofit2.Response
 import retrofit2.http.Query
